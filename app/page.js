@@ -1,3 +1,5 @@
+import LocationDetector from "@/components/LocationDetector";
+
 export default function HomePage() {
-  return <h1 className="text-3xl font-bold underline">HELLO WORLD, HOME PAGE</h1>;
+  return <LocationDetector />;
 }
