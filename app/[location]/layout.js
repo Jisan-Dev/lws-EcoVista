@@ -9,14 +9,8 @@ export default function SubLayout({ children, aqi, weather, temperature, wind })
   return (
     <div className="wrapper">
       {/* image background and overlay */}
-      <Image
-        src="/background.png"
-        className="bg-img"
-        alt="background image"
-        width={700}
-        height={1200}
-      />
-      <div className="overlay"></div>
+      <Image src="/background.png" className="bg-img" alt="background image" fill />
+      <div className="overlay h-full"></div>
 
       {/* main content */}
       <main className="!z-50 w-full">
