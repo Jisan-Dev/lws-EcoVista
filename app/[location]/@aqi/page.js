@@ -1,7 +1,15 @@
 import AQIComponent from "@/components/AQIcomponent";
+import NoLocationInfo from "@/components/NoLocationInfo";
+import { getResolvedLatLon } from "@/lib/location-info";
 
-const AQIPage = ({ params: { location }, searchParams: { latitude, longitude } }) => {
-  return <AQIComponent lat={latitude} lon={longitude} />;
+const AQIPage = async ({ params: { location }, searchParams: { latitude, longitude } }) => {
+  const resolved = await getResolvedLatLon(location, latitude, longitude);
+
+  if (resolved?.lat && resolved?.lon) {
+    return <AQIComponent lat={resolved?.lat} lon={resolved?.lon} />;
+  } else {
+    return <NoLocationInfo location={location} />;
+  }
 };
 
 export default AQIPage;
