@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import LocationDetectingLoader from "./LocationDetectingLoader";
 
 const LocationDetector = () => {
   const [loading, setLoading] = useState(true);
@@ -22,7 +22,22 @@ const LocationDetector = () => {
     }
   }, [router, searchParams]);
 
-  return <>{loading && <LocationDetectingLoader />}</>;
+  return (
+    <div className="flex flex-col justify-center items-center h-screen bg-slate-700 text-white">
+      {loading && (
+        <>
+          <Image
+            src="/network.gif"
+            alt="Loading..."
+            height={500}
+            width={500}
+            className="border rounded-md my-4"
+          />
+          <p className="text-4xl text-center">Detecting Location...</p>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default LocationDetector;
