@@ -25,7 +25,7 @@ const LocationSwitcher = () => {
       {showLocationList && (
         <div className="absolute left-0 top-12 z-[999] w-full min-w-[280px] rounded-md bg-white p-4 shadow max-md:-translate-x-1/2">
           <ul role="list" className="divide-y divide-gray-100 [&>*]:py-2 [&>li]:cursor-pointer">
-            {locations.map((info) => (
+            {locations?.map((info) => (
               <li key={info.location}>
                 <Link
                   href={`/${info.location}?latitude=${info.latitude}&longitude=${info.longitude}`}>
